@@ -51,3 +51,22 @@ if ("IntersectionObserver" in window && revealTargets.length > 0) {
 } else {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
 }
+
+// Shows a pointer to non-U.S. helplines when the browser's time zone is outside the U.S.
+// Uses only the local time zone setting: no location permission, no network request, nothing stored.
+(() => {
+  const note = document.querySelector("[data-intl-note]");
+  if (!note) return;
+  let zone = "";
+  try {
+    zone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+  } catch (error) {
+    return;
+  }
+  if (!zone) return;
+  const usZones =
+    /^(America\/(New_York|Detroit|Chicago|Menominee|Denver|Boise|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak|Puerto_Rico|Indiana\/|Kentucky\/|North_Dakota\/)|Pacific\/(Honolulu|Guam|Saipan|Pago_Pago)|US\/|EST5EDT|CST6CDT|MST7MDT|PST8PDT)/;
+  if (!usZones.test(zone)) {
+    note.hidden = false;
+  }
+})();

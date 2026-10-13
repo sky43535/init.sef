@@ -788,3 +788,41 @@ h3 {
     transform: none;
   }
 }
+
+.hero-note {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  opacity: 0.85;
+}
+
+.region-link {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.region-banner {
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(79, 110, 91, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(127, 155, 132, 0.18);
+  font-weight: 700;
+}
+
+.region-banner[hidden] {
+  display: none;
+}
+
+.region-banner a,
+.text-link {
+  font-weight: 900;
+  color: var(--sage-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+}
